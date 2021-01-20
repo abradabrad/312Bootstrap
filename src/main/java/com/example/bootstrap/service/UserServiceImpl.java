@@ -1,16 +1,15 @@
-package com.example.springboot.service;
+package com.example.bootstrap.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.springboot.dao.UserDao;
-import com.example.springboot.model.Role;
-import com.example.springboot.model.User;
+import com.example.bootstrap.dao.UserDao;
+import com.example.bootstrap.model.Role;
+import com.example.bootstrap.model.User;
 
 import java.util.Collection;
 import java.util.HashSet;

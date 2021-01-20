@@ -1,4 +1,4 @@
-package com.example.springboot.controller;
+package com.example.bootstrap.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.example.springboot.model.User;
-import com.example.springboot.service.UserService;
+import com.example.bootstrap.model.User;
+import com.example.bootstrap.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;

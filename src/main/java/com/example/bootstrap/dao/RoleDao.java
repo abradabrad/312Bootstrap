@@ -1,6 +1,6 @@
-package com.example.springboot.dao;
+package com.example.bootstrap.dao;
 
-import com.example.springboot.model.Role;
+import com.example.bootstrap.model.Role;
 
 public interface RoleDao {
     Role getRole(String role);

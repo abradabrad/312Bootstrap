@@ -1,8 +1,8 @@
-package com.example.springboot.dao;
+package com.example.bootstrap.dao;
 
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
-import com.example.springboot.model.Role;
+import com.example.bootstrap.model.Role;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;

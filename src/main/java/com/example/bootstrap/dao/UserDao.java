@@ -1,6 +1,6 @@
-package com.example.springboot.dao;
+package com.example.bootstrap.dao;
 
-import com.example.springboot.model.User;
+import com.example.bootstrap.model.User;
 
 import java.util.List;
 

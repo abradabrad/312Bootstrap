@@ -1,10 +1,10 @@
-package com.example.springboot.service;
+package com.example.bootstrap.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.springboot.dao.RoleDao;
-import com.example.springboot.model.Role;
+import com.example.bootstrap.dao.RoleDao;
+import com.example.bootstrap.model.Role;
 
 @Service
 @Transactional

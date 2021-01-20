@@ -1,10 +1,10 @@
-package com.example.springboot.dao;
+package com.example.bootstrap.dao;
 
 import org.hibernate.query.Query;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Repository;
-import com.example.springboot.model.User;
+import com.example.bootstrap.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
