@@ -1,5 +1,6 @@
 package com.example.bootstrap.service;
 
+import com.example.bootstrap.dao.RoleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -21,10 +22,12 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
+    private final RoleDao roleDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao) {
+    public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
         this.userDao = userDao;
+        this.roleDao = roleDao;
     }
 
     @Override
@@ -42,7 +45,10 @@ public class UserServiceImpl implements UserService {
             return;
         }
         System.out.println("create user");
-        userDao.add(get(user));
+        System.out.println(user);
+        System.out.println(user+ " after get");
+        userDao.add(user);
+        System.out.println(user);
     }
 
     @Override
@@ -55,18 +61,19 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void edit(User user) {
 
-        userDao.edit(get(user));
+        userDao.edit(user);
     }
 
-    private User get(User user) {
-        Set<Role> roleSet = new HashSet<>();
-        roleSet.add(new Role(1L, "ROLE_USER"));
-        if (user.getAdmin() != null && user.getAdmin().equals("ROLE_ADMIN")) {
-            roleSet.add(new Role(2L, "ROLE_ADMIN"));
-        }
-        user.setRoles(roleSet);
-        return user;
-    }
+    //private User get(User user) {
+     //   Set<Role> roleSet = new HashSet<>();
+     //   roleSet.add(new Role(1L, "ROLE_USER"));
+     //  if (user.getAdmin() != null && user.getAdmin().equals("ADMIN")) {
+     //       roleSet.add(new Role(2L, "ROLE_ADMIN"));
+     //   }
+      //  user.setRoles(roleSet);
+      //  System.out.println(user + " in get");
+      //  return user;
+   // }
 
     @Override
     @Transactional
@@ -82,12 +89,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userDao.getByLogin(s);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userDao.getByLogin(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Unknown user: " + s);
+            throw new UsernameNotFoundException("Unknown user: " + username);
         }
         return user;
+    }
+
+    @Override
+    public Role getRoleByName(String role) {
+        return roleDao.getRole(role);
     }
 
     private static Collection<? extends GrantedAuthority> getAuthorities(User user) {

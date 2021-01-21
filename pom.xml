@@ -8,11 +8,11 @@
         <version>2.4.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>springboot</artifactId>
+    <groupId>com.example.bootstrap</groupId>
+    <artifactId>bootstrap</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot</name>
-    <description>Demo project for Spring Boot</description>
+    <name>bootstrap</name>
+    <description>Demo project for Spring Boot bootstrap</description>
 
     <properties>
         <java.version>11</java.version>

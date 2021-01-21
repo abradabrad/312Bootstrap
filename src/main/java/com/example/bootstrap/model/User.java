@@ -5,7 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -14,14 +16,14 @@ public class User implements UserDetails {
 
 
     @Id
-    @Column(name = "id_user")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "secondName")
+    @Column(name = "secondname")
     private String secondName;
 
     @Column(name = "login")
@@ -55,6 +57,14 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public User(int id, String name, String secondMame, String login, String password, Set<Role> roles) {
+        this.id = id;
+        this.name = name;
+        this.secondName = secondName;
+        this.login = login;
+        this.password = password;
+        this.roles = roles;
+    }
 
 
     public int getId() {
@@ -132,9 +142,27 @@ public class User implements UserDetails {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public String getRolesStr() {
+        String rolesStr = null;
+        rolesStr = roles.toString().replace('[', ' ').replace(']', ' ').trim();
+        return rolesStr;
     }
+
+    //public void setRolesStr(String[] rolesStr) {
+   //     Set<Role> roles = null;
+   //    roles.add(roles.ge);
+
+  //  }
+
+
+   // public void setRoles(Set<Role> roles) {
+   //     this.roles = roles;
+   // }
+     public void setRoles(Set<Role> roles) {
+         this.roles = roles;
+    }
+
+
 
     public String getAdmin() {
         return admin;
@@ -153,6 +181,7 @@ public class User implements UserDetails {
            return false;
        }
     }
+
 
     @Override
     public String toString() {

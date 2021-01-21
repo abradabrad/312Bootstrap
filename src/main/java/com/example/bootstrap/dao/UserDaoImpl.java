@@ -1,5 +1,6 @@
 package com.example.bootstrap.dao;
 
+import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -77,9 +78,9 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void edit(User user) {
-        System.out.println(user);
-       entityManager.merge(user);
-        System.out.println(user);
+        entityManager.unwrap(Session.class).saveOrUpdate(user);
+       //entityManager.merge(user);
+        System.out.println(user + " In DAO");
     }
 
     private static Collection<? extends GrantedAuthority> getAuthorities(User user) {

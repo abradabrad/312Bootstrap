@@ -1,5 +1,6 @@
 package com.example.bootstrap.service;
 
+import com.example.bootstrap.model.Role;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import com.example.bootstrap.model.User;
@@ -15,4 +16,7 @@ public interface UserService extends UserDetailsService {
     User getById(int id);
     @Override
     UserDetails loadUserByUsername(String s) throws UsernameNotFoundException;
+
+    Role getRoleByName(String roles);
+
 }

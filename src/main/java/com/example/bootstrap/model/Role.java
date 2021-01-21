@@ -10,11 +10,11 @@ import java.util.Set;
 // Имя роли должно соответствовать шаблону: «ROLE_ИМЯ», например, ROLE_USER.
 
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 public class Role implements GrantedAuthority {
 
     @Id
-    @Column(name = "id_role")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "rolename", length = 50)
@@ -69,6 +69,9 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String toString() {
-        return role;
+        String shortRole = null;
+        shortRole = role.substring(5).toUpperCase();
+
+        return shortRole;
     }
 }

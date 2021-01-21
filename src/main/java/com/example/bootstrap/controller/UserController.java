@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.bootstrap.model.User;
 import com.example.bootstrap.service.UserService;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
+/*
     @GetMapping()
     public String getIndex(Model model) {
         List<String> messages = new ArrayList<>();
@@ -31,6 +32,17 @@ public class UserController {
         messages.add("Login for continue ");
         model.addAttribute("messages", messages);
         return "index";
+    }*/
+
+    @GetMapping()
+    public String index() {
+        return "login";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login() {
+
+        return "loginPage";
     }
 
     @GetMapping(value = "/user")
